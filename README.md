@@ -7,5 +7,3 @@ Perwakilan : Hasyim Musyadi (13020240099)
 Anggota    : Dwiandhika Putra (13020240115)
 Anggota    : Ashadul Muslihun (13020240351)
 Anggota    : Fajar (13020240083)
-
-
