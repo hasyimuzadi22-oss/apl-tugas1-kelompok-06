@@ -2,8 +2,8 @@
 
 | Kategori | Batasan | Dampak pada Arsitektur |
 |---|---|---|
-| Teknologi | Harus memakai basis data akademik kampus yang sudah ada (data mata kuliah, dosen, ruang) | Arsitektur tidak bisa mendesain skema data dari nol, harus menyesuaikan/mengintegrasikan dengan struktur lama |
-| Teknologi | Layanan harus bisa diakses dari perangkat mobile dan desktop | Perlu desain antarmuka/API yang fleksibel untuk berbagai klien |
-| Bisnis | Sistem harus siap dan stabil sebelum masa pengisian jadwal awal semester | Pengujian beban dan rilis fitur baru harus selesai jauh sebelum periode sibuk |
-| Operasional | Tim IT kampus kecil dengan jam dukungan terbatas | Arsitektur sebaiknya sederhana dan mudah dipantau, menghindari komponen yang butuh pemeliharaan intensif |
+| Teknologi | Harus memakai basis data akademik kampus yang sudah ada (data mata kuliah, dosen, ruang). | Arsitektur tidak bisa mendesain skema data dari nol, harus menyesuaikan/mengintegrasikan dengan struktur lama. |
+| Teknologi | Layanan harus bisa diakses dari perangkat mobile dan desktop. | Perlu desain antarmuka/API yang fleksibel untuk berbagai klien. |
+| Bisnis | Sistem harus siap dan stabil sebelum masa pengisian jadwal awal semester. | Pengujian beban dan rilis fitur baru harus selesai jauh sebelum periode sibuk. |
+| Operasional | Tim IT kampus kecil dengan jam dukungan terbatas. | Arsitektur sebaiknya sederhana dan mudah dipantau, menghindari komponen yang butuh pemeliharaan intensif. |
 
