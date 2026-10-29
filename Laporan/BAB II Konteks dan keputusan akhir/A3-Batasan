@@ -1,5 +1,3 @@
-## A3. Batasan Sistem
-
 | Kategori | Batasan | Dampak pada Arsitektur |
 |---|---|---|
 | Teknologi | Harus memakai basis data akademik kampus yang sudah ada (data mata kuliah, dosen, ruang) | Arsitektur tidak bisa mendesain skema data dari nol, harus menyesuaikan/mengintegrasikan dengan struktur lama |
