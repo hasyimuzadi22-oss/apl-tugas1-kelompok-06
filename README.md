@@ -11,7 +11,7 @@
 
 | No | Stambuk | Nama | Akun GitHub | Kode yang dikerjakan |
 |---|---|---|---|---|
-| 1 | 13020240099 | Hasyim Musyadi | @nama discordmu | A5, B5 |
-| 1 | 13020240351 | Ashadul Muslihun | @nama discordmu | A1, A2, B1, B2 |
-| 2 | 13020240119 | Dwi Andhika Putra | @nama discordmu | A3, B3 |
+| 1 | 13020240099 | Hasyim Musyadi | @hasyimuzadi22-oss | A5, B5 |
+| 1 | 13020240351 | Ashadul Muslihun | @ashadulmuslihun39 | A1, A2, B1, B2 |
+| 2 | 13020240119 | Dwi Andhika Putra | @dwiandhikap48-afk | A3, B3 |
 | 3 | 13020240083 | Fajar | @itsjarot | A4, B4 |
