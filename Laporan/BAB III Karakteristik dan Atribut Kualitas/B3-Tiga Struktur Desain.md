@@ -1,4 +1,4 @@
-# Tiga Desain Struktur 
+# 3 Struktur Desain 
 
 1. Desain Fitur Jadwal Pribadi (*Personal Schedule Dashboard*)
    - **Deskripsi Fungsional:** Halaman atau antarmuka khusus yang dirancang secara personal bagi setiap pengguna (mahasiswa maupun dosen) untuk melihat daftar mata kuliah, kegiatan akademik, dan slot waktu yang menjadi tanggung jawab atau pilihan mereka dalam satu tampilan terpusat.
