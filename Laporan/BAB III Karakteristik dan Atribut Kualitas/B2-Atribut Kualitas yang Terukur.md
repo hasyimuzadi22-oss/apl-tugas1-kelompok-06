@@ -1,24 +1,52 @@
 # B2. Evaluasi dan Karakteristik Pendorong
 
-## Tiga Ciri Penguji Karakteristik
+## 1. Kriteria Pengujian Karakteristik Arsitektur
 
-Suatu karakteristik dikategorikan sebagai **pendorong arsitektur** (*architectural driver*) apabila memenuhi kriteria berikut:
+Untuk menentukan apakah suatu kandidat karakteristik merupakan **Karakteristik Pendorong Utama** (*Architectural Driver*), kandidat tersebut dievaluasi berdasarkan tiga kriteria berikut:
 
-* **(a) Dampak Keputusan:** Berdampak langsung pada keputusan struktur atau pemilihan teknologi.
-* **(b) Keselarasan Stakeholder:** Berhubungan langsung dengan tujuan dan kebutuhan pemangku kepentingan.
-* **(c) Uji Kuantitatif/Kualitatif:** Dapat dievaluasi secara terukur melalui skenario atau kriteria spesifik.
+* **(a) Dampak pada Keputusan Struktur:**
+  Memaksa adanya keputusan teknis yang fundamental, seperti pemilihan pola arsitektur, pemisahan komponen, atau perancangan model data.
 
-> **Kesimpulan Pengujian:** Karakteristik **Konsistensi**, **Keamanan/Audit**, dan **Kinerja** terbukti memenuhi ketiga kriteria penguji di atas.
+* **(b) Keselarasan dengan Tujuan Pemangku Kepentingan:**
+  Berdampak langsung terhadap keberhasilan operasional dan nilai utama yang diharapkan oleh mahasiswa, dosen, serta staf akademik.
+
+* **(c) Dapat Dievaluasi dan Diukur:**
+  Memiliki kriteria keberhasilan yang jelas dan dapat diuji melalui skenario pengujian, pengukuran kinerja, atau validasi aturan.
 
 ---
 
-## Karakteristik Pendorong Terpilih
+## 2. Matriks Evaluasi Kandidat
 
-1. **Pendorong 1: Konsistensi dan Deteksi Bentrok**
-   * **Alasan:** Kesalahan jadwal berdampak fatal secara langsung terhadap kelancaran seluruh kegiatan akademik.
+| Kandidat Karakteristik | (a) Dampak Struktur | (b) Tujuan Pemangku Kepentingan | (c) Dapat Dievaluasi | Status |
+| :--- | :---: | :---: | :---: | :---: |
+| **Konsistensi & Deteksi Bentrok** | Ya | Ya | Ya | **Pendorong** |
+| **Keamanan & Auditabilitas** | Ya | Ya | Ya | **Pendorong** |
+| **Kinerja Akses** | Ya | Ya | Ya | **Pendorong** |
+| Ketersediaan Layanan | Tidak langsung | Ya | Ya | Pendukung |
+| Kemudahan Pemeliharaan | Tidak langsung | Ya | Ya | Pendukung |
+| Kemudahan Penggunaan | Tidak | Ya | Sulit diukur | Pendukung |
 
-2. **Pendorong 2: Keamanan dan Audit**
-   * **Alasan:** Perubahan data harus dibatasi hanya untuk pihak berwenang dan wajib memiliki riwayat jejak audit yang dapat ditelusuri.
+---
 
-3. **Pendorong 3: Kinerja Akses**
-   * **Alasan:** Informasi jadwal perlu diakses secara cepat dan stabil, terutama pada periode sibuk (seperti awal semester atau masa KRS).
+## 3. Detail Analisis Karakteristik Pendorong
+
+### Pendorong 1: Konsistensi Jadwal dan Deteksi Bentrok
+* **Alasan Pemilihan:** Kesalahan atau bentrok jadwal (baik bentrok ruang, dosen, maupun mahasiswa) berdampak langsung pada terhentinya kegiatan akademik.
+* **Dampak Arsitektur:** 
+  * Penanganan transaksi data yang ketat untuk menjamin konsistensi.
+  * Penerapan mesin validasi (*validation engine*) eksplisit yang memeriksa aturan bentrok sebelum jadwal disimpan.
+* **Kriteria Pengujian:** Sistem harus menolak $100\%$ percobaan penyimpanan jadwal yang memiliki konflik waktu, ruang, atau pengajar, termasuk pada kondisi akses bersamaan (*concurrent write*).
+
+### Pendorong 2: Keamanan Akses dan Auditabilitas
+* **Alasan Pemilihan:** Perubahan jadwal hanya boleh dilakukan oleh pihak berwenang. Setiap riwayat perubahan harus dapat ditelusuri untuk kebutuhan pertanggungjawaban.
+* **Dampak Arsitektur:**
+  * Penerapan lapisan otorisasi berbasis peran (*Role-Based Access Control*) pada setiap titik masuk layanan (*API endpoint*).
+  * Penyediaan mekanisme pencatatan log terstruktur (*structured logging*) yang terpisah dan aman dari modifikasi.
+* **Kriteria Pengujian:** Setiap aktivitas penambahan, pengubahan, atau penghapusan jadwal berhasil mencatat identitas pengguna, waktu kejadian, dan data sebelum/sesudah perubahan.
+
+### Pendorong 3: Kinerja Akses Jadwal
+* **Alasan Pemilihan:** Informasi jadwal harus dapat diakses dengan cepat, terutama pada periode puncak seperti minggu pertama perkuliahan atau masa pengisian KRS.
+* **Dampak Arsitektur:**
+  * Penggunaan indeks database yang optimal dan strategi *caching* untuk data jadwal yang sering dibaca.
+  * Pemisahan jalur kueri (*read*) dan pembaruan (*write*) jika tingkat lalu lintas data sangat tinggi.
+* **Kriteria Pengujian:** Waktu tanggap (*response time*) pencarian dan penayangan jadwal tidak melebihi $300\text{ ms}$ saat diakses oleh pengguna secara bersamaan.
