@@ -1,8 +1,5 @@
 # B1. Kandidat Karakteristik Arsitektur
 
-Dokumen ini mencatat identifikasi kandidat karakteristik arsitektur sistem pengelolaan jadwal akademik, kriteria pengujian untuk menyaring pendorong utama (*architectural drivers*), serta justifikasi teknis pemilihannya.
-
----
 
 ## 1. Identifikasi Kandidat Karakteristik
 
@@ -31,7 +28,6 @@ Karakteristik yang berdampak langsung pada fondasi sistem dan sifatnya tidak bis
    * **Deskripsi:** Kecepatan penayangan data jadwal saat diakses oleh pengguna dalam jumlah banyak.
    * **Implikasi Teknikal:** Menentukan strategi pembuatan indeks basis data, perancangan kueri yang efisien, hingga penerapan mekanisme *caching* untuk data yang sering dibaca.
 
----
 
 ### B. Kandidat Lanjutan
 Karakteristik yang mendukung keandalan operasional dan kemudahan pengembangan jangka panjang.
@@ -52,7 +48,6 @@ Karakteristik yang mendukung keandalan operasional dan kemudahan pengembangan ja
    * **Kategori:** Lintas Sektor, Eksplisit.
    * **Deskripsi:** Kemampuan bertukar data dengan sistem lain (misalnya sistem KRS, sistem kepegawaian, atau presensi) melalui kontrak API yang disepakati bersama.
 
----
 
 ### C. Kandidat Tambahan
 Karakteristik pendukung pengalaman pengguna dan ketahanan sistem secara umum.
@@ -65,7 +60,6 @@ Karakteristik pendukung pengalaman pengguna dan ketahanan sistem secara umum.
     * **Kategori:** Operasional, Implisit.
     * **Deskripsi:** Ketika terjadi kegagalan sistem (seperti kueri gagal atau koneksi terputus), sistem dapat menangkap penanganan kesalahan (*error handling*) secara aman tanpa merusak data.
 
----
 
 ## 2. Kriteria Evaluasi dan Pengujian
 
@@ -75,7 +69,6 @@ Untuk menentukan apakah suatu kandidat layak dikategorikan sebagai **Karakterist
 2. **Keterkaitan dengan Tujuan Pemangku Kepentingan:** Berdampak luas terhadap kepuasan, keamanan, atau keberlangsungan operasional pengguna utama (akademik, dosen, mahasiswa).
 3. **Dapat Dievaluasi:** Memiliki kriteria pengukuran yang realistis, baik melalui skenario pengujian beban (*load testing*), pengujian fungsional, maupun audit sistem.
 
----
 
 ## 3. Karakteristik Pendorong Terpilih (*Architectural Drivers*)
 
