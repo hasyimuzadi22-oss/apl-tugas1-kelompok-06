@@ -1,32 +1,23 @@
-# BAB I Pendahuluan
-
-## 1.1 Gambaran Subsistem dan Layanan Inti
-
-Kelompok ini (I-6) ditugaskan menganalisis **Layanan jadwal kuliah dan ruang**, yang berada di bawah subsistem **Academic Management** pada Smart Campus UMI. Layanan ini mencakup empat fungsi utama:
-
-- Menampilkan **jadwal pribadi** mahasiswa/dosen
-- Memproses **perubahan jadwal** (misalnya karena bentrok atau permintaan dosen)
-- Menyediakan **informasi ketersediaan ruang**
-- Mendeteksi dan menangani **bentrok jadwal**, baik bentrok mata kuliah maupun bentrok pemakaian ruang
-
-Layanan ini umumnya diakses melalui SIAKAD atau sistem akademik sejenis di lingkungan UMI.
-
-## 1.2 Ruang Lingkup
-
-Analisis dibatasi hanya pada layanan jadwal dan ruang, bukan keseluruhan subsistem Academic Management. Yang dibahas meliputi:
-
-- Alur melihat jadwal
-- Alur pengajuan dan persetujuan perubahan jadwal
-- Mekanisme pengecekan ruang kosong
-- Logika deteksi bentrok jadwal
-
-Hal-hal di luar itu — seperti KRS, nilai, atau pembayaran — tidak dibahas karena merupakan layanan inti kelompok lain sesuai pembagian tugas.
-
-## 1.3 Sumber Data
-
-Data untuk layanan jadwal kuliah dan ruang dikumpulkan melalui:
-
-1. **Pengalaman pengguna** — mencoba langsung fitur jadwal di SIAKAD, mencatat alur penggunaan, kendala yang ditemui, dan tangkapan layar sebagai bukti.
-2. **Informasi publik** — merujuk pada situs umi.ac.id, panduan akademik, dan pengumuman resmi terkait jadwal dan penggunaan ruang.
-3. **Wawancara singkat** dengan minimal 5 responden (mahasiswa serta staf/pengelola akademik terkait jadwal), dicatat sebagai R1–R5 tanpa identitas pribadi.
-4. **Observasi langsung** terhadap kondisi ruang kelas dan proses penanganan bentrok jadwal di kampus.
+# BAB I. PENDAHULUAN
+ 
+## 1.1 Latar Belakang
+ 
+Layanan jadwal kuliah dan ruang merupakan komponen penting penunjang kegiatan akademik mahasiswa di kampus [1]. Berdasarkan pengamatan terhadap SIAKAD, pengelolaan jadwal saat ini berpotensi menimbulkan bentrok jadwal mata kuliah maupun ruang, karena verifikasi ketersediaan ruang dan jadwal dosen belum sepenuhnya terintegrasi secara otomatis [2]. Mahasiswa dan dosen sering kali baru mengetahui adanya bentrok setelah jadwal dipublikasikan, sehingga perubahan harus dilakukan secara manual dan memakan waktu [3]. Informasi ketersediaan ruang serta status perubahan jadwal pun belum selalu tersampaikan secara *real-time* kepada seluruh pihak terkait [3]. Oleh karena itu, diperlukan perancangan arsitektur perangkat lunak yang andal untuk mendukung layanan jadwal kuliah dan ruang pada subsistem *Academic Management*, agar proses penjadwalan, deteksi bentrok, dan informasi ruang berjalan lebih sistematis dan terpadu [4].
+ 
+## 1.2 Tujuan Dokumen
+ 
+Tujuan dari penyusunan dokumen arsitektur ini adalah:
+ 
+1. Mendokumentasikan Kebutuhan Signifikan Arsitektur (ASR) yang digali dari kondisi nyata pengguna layanan jadwal dan ruang [1].
+2. Merumuskan Keputusan Arsitektur (ADR) yang logis, seperti penerapan pemeriksaan bentrok secara sinkron saat pengajuan perubahan jadwal [2].
+3. Memetakan rancangan sistem ke dalam tiga struktur arsitektur utama (Modul, *Component & Connector*, dan Alokasi) sebagai pedoman teknis bagi pengembang [1].
+4. Menetapkan target metrik atribut kualitas (akurasi, ketersediaan, dan konsistensi data) beserta analisis kompromi (*trade-off*) dari sistem yang dirancang [1].
+## 1.3 Ruang Lingkup Sistem
+ 
+Ruang lingkup arsitektur yang dirancang berfokus pada empat fitur utama layanan jadwal kuliah dan ruang:
+ 
+1. **Jadwal Pribadi:** Penyajian jadwal kuliah/mengajar yang dipersonalisasi untuk tiap mahasiswa dan dosen [3].
+2. **Perubahan Jadwal:** Alur pengajuan dan persetujuan perubahan jadwal beserta validasi otomatis terhadap potensi bentrok [2].
+3. **Informasi Ruang:** Penyediaan data ketersediaan ruang secara *real-time* untuk mendukung penjadwalan maupun penggunaan insidental [3].
+4. **Deteksi Bentrok:** Mekanisme pemeriksaan otomatis terhadap bentrok jadwal mata kuliah maupun bentrok pemakaian ruang [2].
+ 
