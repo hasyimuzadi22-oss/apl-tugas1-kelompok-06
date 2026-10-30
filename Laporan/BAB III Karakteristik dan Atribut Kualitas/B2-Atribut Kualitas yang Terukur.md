@@ -13,8 +13,6 @@ Untuk menentukan apakah suatu kandidat karakteristik merupakan **Karakteristik P
 * **(c) Dapat Dievaluasi dan Diukur:**
   Memiliki kriteria keberhasilan yang jelas dan dapat diuji melalui skenario pengujian, pengukuran kinerja, atau validasi aturan.
 
----
-
 ## 2. Matriks Evaluasi Kandidat
 
 | Kandidat Karakteristik | (a) Dampak Struktur | (b) Tujuan Pemangku Kepentingan | (c) Dapat Dievaluasi | Status |
@@ -26,7 +24,6 @@ Untuk menentukan apakah suatu kandidat karakteristik merupakan **Karakteristik P
 | Kemudahan Pemeliharaan | Tidak langsung | Ya | Ya | Pendukung |
 | Kemudahan Penggunaan | Tidak | Ya | Sulit diukur | Pendukung |
 
----
 
 ## 3. Detail Analisis Karakteristik Pendorong
 
