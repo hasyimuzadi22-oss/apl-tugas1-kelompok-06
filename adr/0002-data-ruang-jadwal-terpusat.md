@@ -28,5 +28,3 @@ Kami akan menyimpan data jadwal dan ruang pada satu sumber data terpusat yang di
 - Diperiksa melalui code review setiap penambahan modul baru yang mengakses data jadwal/ruang.
 
 ---
-
-[← Kembali ke daftar ADR](README.md)
