@@ -3,7 +3,7 @@
 
 - **Tanggal:** [26-10-2026]
 - **Responden (peran saja):** Dosen Program Studi
-- **Pewawancara:** [Ashadul Muslihun]
+- **Pewawancara:** [Dwi Andhika Putra]
 - **Layanan yang dibahas:** Jadwal mengajar dan pengajuan perubahan jadwal.
 
 ### Pertanyaan dan Ringkasan Jawaban
