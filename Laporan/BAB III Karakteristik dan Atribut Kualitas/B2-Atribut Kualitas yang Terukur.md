@@ -32,14 +32,14 @@ Untuk menentukan apakah suatu kandidat karakteristik merupakan **Karakteristik P
 * **Dampak Arsitektur:** 
   * Penanganan transaksi data yang ketat untuk menjamin konsistensi.
   * Penerapan mesin validasi (*validation engine*) eksplisit yang memeriksa aturan bentrok sebelum jadwal disimpan.
-* **Kriteria Pengujian:** Sistem harus menolak $100\%$ percobaan penyimpanan jadwal yang memiliki konflik waktu, ruang, atau pengajar, termasuk pada kondisi akses bersamaan (*concurrent write*).
+* **Kriteria Pengujian:** Sistem menolak 100% dari minimal 100 skenario uji penyimpanan jadwal yang memiliki konflik waktu, ruang, atau pengajar, termasuk pada kondisi akses bersamaan (*concurrent write*).
 
 ### Pendorong 2: Keamanan Akses dan Auditabilitas
 * **Alasan Pemilihan:** Perubahan jadwal hanya boleh dilakukan oleh pihak berwenang. Setiap riwayat perubahan harus dapat ditelusuri untuk kebutuhan pertanggungjawaban.
 * **Dampak Arsitektur:**
   * Penerapan lapisan otorisasi berbasis peran (*Role-Based Access Control*) pada setiap titik masuk layanan (*API endpoint*).
   * Penyediaan mekanisme pencatatan log terstruktur (*structured logging*) yang terpisah dan aman dari modifikasi.
-* **Kriteria Pengujian:** Setiap aktivitas penambahan, pengubahan, atau penghapusan jadwal berhasil mencatat identitas pengguna, waktu kejadian, dan data sebelum/sesudah perubahan.
+* **Kriteria Pengujian:** Pada pengujian beban dengan 1.000 pengguna bersamaan, 95% permintaan jadwal memiliki waktu tanggap server ≤ 300 ms dan 95% halaman jadwal tampil penuh dalam < 3 detik.
 
 ### Pendorong 3: Kinerja Akses Jadwal
 * **Alasan Pemilihan:** Informasi jadwal harus dapat diakses dengan cepat, terutama pada periode puncak seperti minggu pertama perkuliahan atau masa pengisian KRS.
