@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="1 - Personal Schedule Dashboard" id="diagram-1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="actor" value="Pengguna (Mahasiswa / Dosen)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="login" value="Login dan Identifikasi Pengguna" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="db" value="Database Jadwal Akademik" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="480" y="30" width="120" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="filter" value="Filter Jadwal Personal (berdasarkan ID pengguna)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="660" y="40" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="dash" value="Personal Schedule Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="170" width="880" height="330" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="cal" value="Tampilan Kalender: Grid View Mingguan atau Bulanan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="70" y="230" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ind" value="Indikator Warna: berbeda untuk tiap mata kuliah atau status kehadiran" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="340" y="230" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="tombol" value="Tombol Pintas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="610" y="230" width="270" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s1" value="Detail Silabus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="590" y="400" width="95" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="Tautan Kelas Daring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="695" y="400" width="95" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="Lokasi Ruangan Fisik" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="800" y="400" width="95" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="goal" value="Tujuan Arsitektur: memudahkan pengguna memantau agenda harian tanpa menyaring data dari seluruh jadwal program studi di kampus." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;dashed=1;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="540" width="880" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="actor" target="login">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="ambil data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="login" target="db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="db" target="filter">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="tampilkan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="filter" target="dash">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="tombol" target="s1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="tombol" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="tombol" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
