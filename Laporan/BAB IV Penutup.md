@@ -4,10 +4,11 @@ Dokumen ini merancang arsitektur layanan jadwal kuliah dan ruang pada subsistem 
 
 Hasil perancangan dapat disimpulkan sebagai berikut:
 
-## 1. Konteks, stakeholder, dan batasan
+### 1. Konteks, stakeholder, dan batasan
 Analisis empat konteks (teknis, siklus hidup proyek, bisnis, dan profesional) menunjukkan bahwa arsitektur harus menjamin jadwal yang akurat, menjaga privasi dan tata kelola, bersifat modular, dan mudah dipelihara lintas semester. Admin akademik dan pengelola ruang dikelola secara intensif (*manage closely*), pimpinan akademik dan auditor dijaga kepuasannya (*keep satisfied*), sedangkan mahasiswa dan dosen diinformasikan dan dilibatkan melalui kanal umpan balik. Batasan seperti penggunaan basis data akademik yang sudah ada, akses lintas perangkat, kesiapan sebelum masa pengisian jadwal, dan tim IT yang kecil menuntut arsitektur yang sederhana dan mudah dipantau.
 
-## 2. **Kebutuhan signifikan dan keputusan arsitektur.** Tiga ASR dirumuskan, yaitu akurasi deteksi bentrok, ketersediaan pada jam sibuk, dan konsistensi data lintas modul. Dua keputusan arsitektur diambil untuk menjawabnya:
+### 2. Kebutuhan signifikan dan keputusan arsitektur
+Tiga ASR dirumuskan, yaitu akurasi deteksi bentrok, ketersediaan pada jam sibuk, dan konsistensi data lintas modul. Dua keputusan arsitektur diambil untuk menjawabnya:
    - **ADR-001:** pemeriksaan bentrok dilakukan secara sinkron saat pengajuan perubahan jadwal. Bentrok dicegah sejak awal, dengan konsekuensi proses pengajuan sedikit lebih lambat.
    - **ADR-002:** data jadwal dan ruang disimpan pada satu sumber data terpusat. Konsistensi tampilan terjaga, dengan konsekuensi seluruh tampilan bergantung pada ketersediaan sumber data tersebut.
 
