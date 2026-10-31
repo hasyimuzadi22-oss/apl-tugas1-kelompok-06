@@ -1,32 +1,44 @@
-## B5-Analisis Trade-off
+## B5. Analisis Trade-Off
 
-Sistem ini mencakup empat fungsi: rubrik, penilaian dosen, umpan balik, dan rekap nilai tugas.
+Sistem ini mencakup empat fitur: jadwal pribadi, perubahan jadwal, informasi ruang, dan deteksi bentrok. Analisis berikut membahas tiga pasangan karakteristik yang saling memengaruhi, lalu menetapkan karakteristik mana yang didahulukan beserta alasannya.
 
-### 1. Keamanan & Integritas Data vs Kinerja
+### Ringkasan
+
+| No | Pasangan Karakteristik | Didahulukan | Dikorbankan (sebagian) | Keputusan Terkait |
+|---|---|---|---|---|
+| 1 | Akurasi deteksi bentrok vs Kecepatan respons | **Akurasi deteksi bentrok** | Kecepatan pengajuan perubahan | ADR-001 |
+| 2 | Konsistensi data vs Ketersediaan | **Konsistensi data** | Ketersediaan saat sumber data terganggu | ADR-002 |
+| 3 | Keamanan & auditabilitas vs Kinerja akses jadwal | **Keamanan & auditabilitas** | Kecepatan akses | RBAC dan audit log |
+
+---
+
+### 1. Akurasi Deteksi Bentrok vs Kecepatan Respons
 
 | Aspek | Penjelasan |
 |---|---|
-| **Hubungan** | Kontrol keamanan seperti otorisasi per peran, enkripsi, dan pencatatan audit (siapa mengubah nilai, kapan, dari berapa ke berapa) menambah beban pemrosesan pada setiap permintaan. |
-| **Dampak** | Penyimpanan dan penampilan nilai menjadi sedikit lebih lambat, terutama saat dosen menginput banyak nilai sekaligus menjelang batas waktu atau saat rekap diakses banyak pengguna. |
-| **Yang didahulukan** | **Keamanan dan integritas data.** |
-| **Alasan** | Nilai adalah data akademik yang sensitif dan berdampak langsung pada kelulusan mahasiswa. Nilai yang bisa diubah tanpa jejak, atau terlihat oleh pihak yang tidak berhak, jauh lebih merugikan daripada jeda beberapa detik. Dampak kinerja dapat ditekan dengan optimasi lain, misalnya pencatatan audit secara asinkron dan pengindeksan data. |
+| **Hubungan** | Agar bentrok tidak lolos, setiap pengajuan perubahan jadwal harus diperiksa terhadap jadwal dosen, jadwal kelas, dan pemakaian ruang sebelum disetujui. Pemeriksaan yang menyeluruh dan dilakukan langsung (sinkron) membutuhkan waktu pemrosesan. Pemeriksaan yang ditunda atau dilakukan di belakang layar akan lebih cepat, tetapi bentrok baru ketahuan setelah perubahan disetujui. |
+| **Dampak** | Admin akademik dan dosen harus menunggu hasil pemeriksaan sebelum pengajuan diproses, sehingga proses terasa sedikit lebih lambat, terutama saat banyak pengajuan masuk bersamaan di awal semester. Sebaliknya, jika pemeriksaan dilewati demi kecepatan, dua kelas bisa terjadwal di ruang atau waktu yang sama dan harus dikoreksi manual setelah jadwal dipublikasikan. |
+| **Yang didahulukan** | **Akurasi deteksi bentrok.** |
+| **Alasan** | Bentrok jadwal berdampak langsung pada terhentinya kegiatan perkuliahan dan sulit diperbaiki setelah berjalan, sedangkan jeda pemeriksaan hanya berlangsung sesaat. Keputusan ini dituangkan dalam ADR-001. Dampak kecepatannya dapat ditekan dengan indeks basis data pada kolom waktu dan ruang, serta kueri pemeriksaan yang efisien. |
 
 ### 2. Konsistensi Data vs Ketersediaan
 
 | Aspek | Penjelasan |
 |---|---|
-| **Hubungan** | Agar rekap nilai selalu akurat, setiap perubahan nilai atau bobot rubrik harus langsung tercermin di rekap dan tampilan mahasiswa. Hal ini membutuhkan sumber data tunggal dan transaksi yang ketat, sehingga sistem lebih rentan berhenti ketika sumber data bermasalah. Menyalin data ke banyak tempat (cache atau replika) akan meningkatkan ketersediaan, tetapi memungkinkan tampilan yang berbeda-beda. |
-| **Dampak** | Jika basis data utama terganggu, penilaian dan penampilan rekap ikut terganggu. Sebaliknya, jika memakai salinan data, mahasiswa bisa melihat nilai lama sementara dosen sudah merevisinya. |
+| **Hubungan** | Agar perubahan jadwal langsung tercermin di tampilan mahasiswa, dosen, dan informasi ruang, seluruh tampilan membaca satu sumber data terpusat. Konsekuensinya, jika sumber data ini bermasalah, semua tampilan ikut terganggu. Menyalin data ke tiap modul akan meningkatkan ketersediaan, tetapi membuka peluang data yang berbeda antartampilan. |
+| **Dampak** | Gangguan pada basis data akademik terpusat berdampak luas karena menjadi titik tunggal kegagalan, terutama pada jam sibuk awal semester. Sebaliknya, jika memakai salinan data, mahasiswa bisa melihat ruang atau jam lama sementara admin sudah menyetujui perubahan, dan bentrok bisa tidak terdeteksi. |
 | **Yang didahulukan** | **Konsistensi data.** |
-| **Alasan** | Nilai yang salah atau tidak sinkron dapat memicu keberatan akademik dan koreksi manual yang mahal. Gangguan singkat pada layanan masih bisa diterima karena penilaian tidak bersifat *real-time critical*. Pendekatan ini sejalan dengan ADR-002 (data terpusat), dan risikonya dikurangi dengan pencadangan rutin dan pemantauan sistem. |
+| **Alasan** | Data yang tidak sinkron dapat menyebabkan bentrok tidak terdeteksi dan informasi yang menyesatkan, yang justru merusak tujuan utama sistem. Keputusan ini dituangkan dalam ADR-002. Risiko titik tunggal kegagalan dikurangi dengan pemantauan, pencadangan rutin, prosedur pemulihan, dan uji beban sebelum periode puncak. |
 
-### 3. Fleksibilitas Rubrik vs Kemudahan Penggunaan
+### 3. Keamanan & Auditabilitas vs Kinerja Akses Jadwal
 
 | Aspek | Penjelasan |
 |---|---|
-| **Hubungan** | Semakin bebas dosen menyusun rubrik (jumlah kriteria, bobot, skala, deskripsi level), semakin rumit antarmuka dan aturan perhitungannya. |
-| **Dampak** | Rubrik yang terlalu bebas membuat pembuatan rubrik lama, rawan salah bobot (misalnya total tidak 100%), dan rekap antar kelas sulit dibandingkan. Rubrik yang terlalu kaku tidak mengakomodasi karakteristik mata kuliah yang berbeda. |
-| **Yang didahulukan** | **Kemudahan penggunaan.** |
-| **Alasan** | Pengguna utama adalah dosen dengan waktu terbatas. Sistem yang rumit akan ditinggalkan atau diisi asal-asalan. Fleksibilitas tetap diberikan secara terbatas lewat template rubrik siap pakai yang dapat disesuaikan, dengan validasi otomatis seperti total bobot harus 100%. |
+| **Hubungan** | Otorisasi berbasis peran (RBAC) pada setiap endpoint dan pencatatan audit log (pelaku, waktu, data sebelum dan sesudah perubahan) menambah beban pemrosesan pada setiap permintaan. Di sisi lain, kinerja akses jadwal menuntut waktu tanggap yang cepat saat banyak pengguna membuka jadwal bersamaan. |
+| **Dampak** | Setiap permintaan menjadi sedikit lebih lambat karena harus melewati pemeriksaan hak akses, dan setiap perubahan jadwal menambah proses penulisan log. Pemakaian *read-cache* untuk mempercepat tampilan jadwal juga harus dijaga agar tidak menampilkan data lama setelah ada perubahan yang disetujui. |
+| **Yang didahulukan** | **Keamanan akses dan auditabilitas.** |
+| **Alasan** | Perubahan jadwal hanya boleh dilakukan oleh pihak berwenang, dan setiap perubahan harus dapat ditelusuri untuk pertanggungjawaban serta kebutuhan auditor. Jeda beberapa milidetik jauh lebih murah daripada perubahan jadwal tanpa wewenang atau tanpa jejak. Dampak kinerja dapat ditekan dengan pencatatan audit secara asinkron, indeks basis data, pemisahan jalur baca dan tulis, serta *cache* yang dibersihkan otomatis setiap kali perubahan disetujui. Pemeriksaan bentrok tetap membaca sumber data terpusat, bukan *cache*, agar akurasi tidak terganggu. |
 
 ---
+
+Urutan prioritas karakteristik pada sistem ini adalah: **(1) akurasi deteksi bentrok, (2) konsistensi data, (3) keamanan dan auditabilitas, lalu (4) kinerja dan ketersediaan**. Alasan utamanya, kesalahan pada jadwal kuliah berdampak langsung pada operasional akademik dan sulit diperbaiki setelah dipublikasikan, sedangkan keterlambatan respons atau gangguan singkat dampaknya jauh lebih kecil dan dapat dimitigasi melalui optimasi, pemantauan, dan pencadangan.
