@@ -29,5 +29,3 @@ Kami akan melakukan pemeriksaan bentrok jadwal dan ruang secara langsung (sinkro
 - Diuji dengan skenario pengajuan perubahan jadwal yang sengaja dibuat bentrok.
 
 ---
-
-[← Kembali ke daftar ADR](README.md)
