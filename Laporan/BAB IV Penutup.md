@@ -10,11 +10,27 @@ Hasil perancangan dapat disimpulkan sebagai berikut:
    - **ADR-001:** pemeriksaan bentrok dilakukan secara sinkron saat pengajuan perubahan jadwal. Bentrok dicegah sejak awal, dengan konsekuensi proses pengajuan sedikit lebih lambat.
    - **ADR-002:** data jadwal dan ruang disimpan pada satu sumber data terpusat. Konsistensi tampilan terjaga, dengan konsekuensi seluruh tampilan bergantung pada ketersediaan sumber data tersebut.
 
-3. **Karakteristik pendorong.** Evaluasi berdasarkan dampak struktural, keselarasan dengan tujuan stakeholder, dan keterukuran menghasilkan tiga karakteristik pendorong: (1) konsistensi dan deteksi bentrok, (2) keamanan akses dan auditabilitas, dan (3) kinerja akses jadwal. Ketersediaan, kemudahan pemeliharaan, dan kemudahan penggunaan ditetapkan sebagai karakteristik pendukung.
+### 3. Karakteristik arsitektur dan atribut kualitas
 
-4. **Struktur desain dan ISO/IEC 25010.** Rancangan dipetakan ke tiga struktur desain: Jadwal Pribadi, Perubahan Jadwal dan Informasi Ruang, serta Deteksi dan Validasi Bentrok. Pemetaan ke ISO/IEC 25010 menghubungkan akurasi deteksi bentrok dengan *Functional Suitability*, ketersediaan pada jam sibuk dengan *Performance Efficiency*, dan konsistensi data lintas modul dengan *Reliability*.
+Dari sepuluh kandidat karakteristik, evaluasi terhadap tiga kriteria (dampak struktural, keselarasan dengan tujuan stakeholder, dan keterukuran) menghasilkan tiga karakteristik pendorong:
 
-5. **Analisis trade-off.** Arsitektur ini mendahulukan keamanan dan integritas data di atas kinerja, konsistensi data di atas ketersediaan, serta kemudahan penggunaan di atas fleksibilitas. Dampak tiap kompromi dikurangi melalui pencatatan audit asinkron, pengindeksan, pencadangan rutin, pemantauan sistem, serta template dan validasi otomatis.
+- **Konsistensi dan deteksi bentrok**, dengan target sistem menolak 100% dari minimal 100 skenario uji bentrok, termasuk pada akses bersamaan (*concurrent write*).
+- **Keamanan akses dan auditabilitas**, melalui otorisasi berbasis peran (RBAC) pada seluruh endpoint dan audit log terpisah yang mencatat pelaku, waktu, serta data sebelum dan sesudah perubahan.
+- **Kinerja akses jadwal**, melalui indeks basis data, caching, dan pemisahan jalur baca/tulis, dengan target 95% permintaan ≤ 300 ms dan 95% halaman tampil < 3 detik pada 1.000 pengguna bersamaan.
+
+Ketersediaan, pemeliharaan, dan kemudahan penggunaan ditetapkan sebagai karakteristik pendukung. Ketiganya tetap penting, tetapi dampaknya terhadap struktur arsitektur tidak langsung atau sulit diukur.
+
+### 4. Struktur desain dan pemetaan ISO/IEC 25010
+
+Rancangan dipetakan ke tiga struktur desain, yaitu Jadwal Pribadi (dasbor kalender personal), Perubahan Jadwal dan Informasi Ruang (notifikasi dan direktori status ruang), serta Deteksi dan Validasi Bentrok (validation engine dengan penguncian slot ruang). Pemetaan ke ISO/IEC 25010 menghubungkan akurasi deteksi bentrok dengan *Functional Suitability*, kinerja dan ketersediaan pada jam sibuk dengan *Performance Efficiency*, dan konsistensi data lintas modul dengan *Reliability*. Dengan demikian setiap karakteristik pendorong memiliki dasar mutu produk yang terukur.
+
+### 5. Analisis trade-off
+
+Analisis kompromi menunjukkan bahwa setiap keputusan memiliki harga yang harus diterima secara sadar:
+
+- Akurasi deteksi bentrok didahulukan daripada kecepatan respons (ADR-001), dan dampaknya ditekan lewat indeks basis data serta kueri pemeriksaan yang efisien.
+- Konsistensi data didahulukan daripada ketersediaan (ADR-002), dan risikonya dikurangi dengan pemantauan, pencadangan rutin, dan uji beban sebelum periode puncak.
+- Keamanan dan auditabilitas didahulukan daripada kinerja akses, dan dampaknya ditekan lewat pencatatan audit asinkron, *read-cache* dengan pembersihan otomatis, serta pemisahan jalur baca dan tulis.
 
 Secara keseluruhan, arsitektur ini memprioritaskan kebenaran dan konsistensi jadwal, keamanan, dan keterlacakan perubahan di atas kecepatan dan fleksibilitas. Pilihan ini sesuai dengan sifat jadwal kuliah sebagai dasar operasional akademik, karena kesalahan di dalamnya jauh lebih mahal daripada jeda pemrosesan beberapa detik.
 
