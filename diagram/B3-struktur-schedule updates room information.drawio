@@ -1,1 +1,93 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="2 - Schedule Updates dan Room Information" id="diagram-2">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="admin" value="Admin Akademik / Dosen" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lane1" value="Modul Perubahan Jadwal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="340" height="350" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="Pembaruan Jadwal (Rescheduling): perpindahan jam atau ruangan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="270" y="90" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="Pembatalan Kelas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="270" y="180" width="280" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3" value="Pengumuman Akademik" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="270" y="270" width="280" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lane2" value="Direktori Ketersediaan Ruang Kelas (Real-time)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="680" y="40" width="360" height="350" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="Direktori Gedung Kampus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="710" y="90" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="Daftar Ruangan dan Status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="710" y="170" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="st1" value="Sedang Dipakai" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="710" y="260" width="90" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="st2" value="Kosong" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="815" y="260" width="90" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="st3" value="Dalam Pemeliharaan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="920" y="260" width="90" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fas" value="Kapasitas dan Fasilitas: proyektor, AC, jumlah kursi" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="710" y="330" width="300" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="db" value="Database Jadwal dan Ruangan" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="460" y="440" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="banner" value="Live Banner Notifikasi: perpindahan jam atau ruangan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="570" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="user" value="Mahasiswa dan Dosen" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="570" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="goal" value="Tujuan Arsitektur: mengakomodasi fleksibilitas operasional kampus saat dosen berhalangan hadir atau terjadi pemindahan lokasi kuliah secara mendadak." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;dashed=1;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="680" width="1000" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="input perubahan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="admin" target="lane1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="simpan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="lane1" target="db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="sinkron status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="lane2" target="db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="trigger" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="db" target="banner">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="banner" target="user">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="d1" target="d2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="d2" target="st1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="d2" target="st2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="d2" target="st3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+
 
