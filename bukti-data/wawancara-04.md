@@ -3,7 +3,7 @@
 
 - **Tanggal:** [26-10-2026]
 - **Responden (peran saja):** Dosen 
-- **Pewawancara:** [Ashadul Muslihun]
+- **Pewawancara:** [Hasyim Muzadi]
 - **Layanan yang dibahas:** Informasi ruang dan kebutuhan fasilitas perkuliahan.
 
 ### Pertanyaan dan Ringkasan Jawaban
