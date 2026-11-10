@@ -31,7 +31,7 @@ Pengelolaan jadwal perkuliahan pada SIAKAD saat ini berpotensi tinggi memicu **b
 1. **Admin Akademik (Manajer Bisnis):** Memiliki tanggung jawab mengatur jadwal seluruh prodi, memverifikasi permohonan perubahan, dan mengelola alokasi ruang.
 2. **Pengelola Ruang / Fakultas (Manajer Bisnis):** Mengawasi ketersediaan dan status penggunaan ruang kelas/laboratorium fisik agar tidak tumpang tindih.
 3. **Dosen (Pengguna Akhir):** Membutuhkan kepastian jadwal mengajar yang akurat, tidak bentrok dengan agenda akademik lain, serta kemudahan dalam mengajukan *rescheduling*.
-4. **Mahasiswa (Pengguna Akhir):** Membutuhkan tampilan jadwal pribadi yang konsisten, jelas, akurat, dan bebas bentrok di perangkat seluler maupun desktop.
+4. **Mahasiswa (Pengguna Akhir):** Membutuhkan tampilan jadwal pribadi yang konsisten, jelas, akurat, dan bebas bentrok di perangkat seluler maupun desktop, serta notifikasi langsung saat jam atau ruang berubah.
 
 ### B. Kuadran Power / Interest
 | Power \ Interest | Interest Rendah / Sedang | Interest Tinggi |
