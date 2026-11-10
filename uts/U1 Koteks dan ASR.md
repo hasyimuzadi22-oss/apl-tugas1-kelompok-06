@@ -1,6 +1,3 @@
-
-# BAB I: PENDAHULUAN (U1)
-
 ## 1.1 Ringkasan Layanan
 Layanan *Academic Management* (khususnya sub-modul Jadwal Kuliah dan Ruang) merupakan salah satu layanan inti pada Sistem Informasi Akademik (SIAKAD) Universitas Muslim Indonesia (UMI). Layanan ini bertanggung jawab dalam mengelola seluruh siklus alokasi perkuliahan, yang meliputi:
 * Pembuatan dan penerbitan jadwal perkuliahan mingguan.
@@ -68,11 +65,3 @@ Berdasarkan analisis kebutuhan dan dampak strukturalnya, ditetapkan 3 Karakteris
 3. **Kinerja Akses Jadwal (Utama):**
    * *Alasan:* Terdapat lonjakan pengaksesan (*peak traffic*) secara masif pada awal semester.
    * *Fokus Arsitektur:* Penerapan strategi *read-caching* (Redis) dan indeks kueri basis data teroptimasi.
-
----
-
-## 1.6 Bagian yang Diperbarui dari Tugas Kelompok Bagian I
-Pada tugas UTS ini, dilakukan pembaruan mendasar dari hasil Tugas Kelompok Bagian I sebelumnya, yaitu:
-1. **Penegasan Masalah Utama & Bukti Empiris:** Mempertajam formulasi masalah tunggal terkait bentrok jadwal/ruang dilengkapi hasil wawancara responden $R_1$ dan $R_2$.
-2. **Formulasi ASR Kuantitatif:** Mengubah ASR kualitatif menjadi metrik terukur yang memiliki angka target eksplisit (misal: LATENCY $\le 300\text{ ms}$, akurasi $100\%$).
-3. **Transisi ke Desain Teknis (U2–U7):** Mengintegrasikan kebutuhan ASR ke dalam skenario atribut kualitas 6-komponen, pemilihan taktik, penerapan pola *Layered* & *Event-Driven*, hingga evaluasi ATAM dan penyusunan ADR formal.
