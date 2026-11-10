@@ -15,7 +15,7 @@ Pengelolaan jadwal perkuliahan pada SIAKAD saat ini berpotensi tinggi memicu **b
 
 ### B. Bukti Empiris
 1. **Ringkasan Wawancara Responden 1 ($R_1$ - Mahasiswa):**
-   > *"Pada minggu pertama semester genap, jadwal mata kuliah Pengolahan Citra dan Arsitektur Perangkat Lunak berada di slot jam yang persis sama, yaitu hari Selasa pukul 08.00 WITA. Kami baru menyadarinya saat hadir di kelas karena sistem SIAKAD tidak memberikan peringatan bentrok saat pengisian KRS."*
+   > *"Informasi perubahan jadwal atau perpindahan ruang biasanya saya terima terlambat, lewat grup chat atau dari teman, bukan dari SIAKAD. Bentrok jadwal juga baru ketahuan setelah jadwal dipublikasikan atau ketika perkuliahan hendak dimulai, karena sistem tidak memberikan notifikasi apa pun."*
 
 2. **Ringkasan Wawancara Responden 2 ($R_2$ - Dosen / Admin Akademik):**
    > *"Pengajuan perubahan jadwal dari dosen sering disetujui tanpa pengecekan silang otomatis terhadap penggunaan ruangan oleh program studi lain. Verifikasi manual membutuhkan waktu hingga 2 hari kerja karena harus mengecek lembar penggunaan ruang secara terpisah."*
