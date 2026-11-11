@@ -1,4 +1,4 @@
-<img width="779" height="270" alt="image" src="https://github.com/user-attachments/assets/7137014e-73e8-49f6-8801-e6bf636db9c4" /># LAMPIRAN: LEMBAR PEMBAGIAN TUGAS ANGGOTA UTS
+LAMPIRAN: LEMBAR PEMBAGIAN TUGAS ANGGOTA UTS
 
 Berikut adalah rincian pembagian tugas dan kontribusi setiap anggota kelompok dalam penyusunan tugas proyek Ujian Tengah Semester (UTS) Perancangan Arsitektur Layanan Smart Campus UMI (Sub-Modul Jadwal Kuliah dan Ruang SIAKAD UMI):
 
