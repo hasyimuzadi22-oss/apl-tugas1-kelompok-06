@@ -1,24 +1,34 @@
 # U6. EVALUASI ARSITEKTUR
 
-Dokumen ini memuat evaluasi menyeluruh terhadap rancangan arsitektur sub-modul **Jadwal Kuliah dan Ruang** pada **Sistem Informasi Akademik (SIAKAD) Universitas Muslim Indonesia (UMI)**. Evaluasi dilakukan melalui tiga metode utama: **Pohon Utilitas Mini**, **Matriks Evaluasi Trade-off Berbobot**, dan **Analisis ATAM (*Architecture Trade-off Analysis Method*)**, serta diakhiri dengan penjelasan **Keterbatasan Masalah Utama** dan **Diagram Konteks System Context**.
+Dokumen ini memuat evaluasi menyeluruh terhadap rancangan arsitektur sub-modul **Jadwal Kuliah dan Ruang** pada **Sistem Informasi Akademik (SIAKAD) Universitas Muslim Indonesia (UMI)**. Evaluasi dilakukan melalui tiga metode utama: **Pohon Utilitas Mini**, **Matriks Evaluasi Trade-off Berbobot**, dan **Analisis ATAM (*Architecture Trade-off Analysis Method*)**, serta diakhiri dengan penjelasan **Keterbatasan Masalah Utama**.
 
 ---
 
 ## 6.1 Pohon Utilitas Mini (*Mini Utility Tree*)
 
-Pohon Utilitas Mini digunakan untuk memetakan dan memprioritaskan kebutuhan kualitas arsitektur sistem berdasarkan tiga *Architectural Significant Requirements* (ASR) pada U1 dan U2 (yaitu **Performance Efficiency / Functional Correctness**, **Usability**, dan **Reliability**). 
+Pohon Utilitas Mini digunakan untuk memetakan dan memprioritaskan kebutuhan kualitas arsitektur sistem berdasarkan tiga *Architectural Significant Requirements* (ASR) pada U1 dan U2 (yaitu **Performance Efficiency / Functional Correctness**, **Usability**, dan **Reliability**).
 
 Setiap skenario dinilai berdasarkan dua dimensi prioritas:
 - **Importance to Business (H/M/L)**: Tingkat kepentingan skenario bagi operasional akademik SIAKAD UMI (*High, Medium, Low*).
 - **Difficulty to Implement (H/M/L)**: Tingkat kesulitan teknis dalam mengimplementasikan solusi arsitektur (*High, Medium, Low*).
 
-### Tabel Pohon Utilitas Mini
-
-| Key Quality Attribute | Quality Attribute Refinement | Scenario ID | Description / Scenario | Priority (Business, Difficulty) |
-| :--- | :--- | :--- | :--- | :--- |
-| **Performance Efficiency** | *Functional Correctness & Conflict Validation* | **SC-01 (ASR-01)** | Saat Admin/Dosen mengajukan jadwal/rescheduling, sistem memvalidasi ketersediaan ruang, jam dosen, jadwal mahasiswa (termasuk lintas semester dan lab vs teori), serta kapasitas ruang secara sinkron dan menolak 100% bentrok dalam waktu response backend $\le 500\text{ ms}$. | **(H, H)** |
-| **Usability** | *User Responsiveness & Push Notification* | **SC-02 (ASR-02)** | Mahasiswa dan Dosen mengakses dasbor jadwal pribadi di seluler/desktop dan menerima notifikasi instan perubahan jadwal dalam $<1{,}5\text{ detik}$ dan maksimal 3 kali klik. | **(H, M)** |
-| **Reliability** | *Data Integrity & Event Auditability* | **SC-03 (ASR-03)** | Saat perubahan jadwal disetujui, pembaruan data disinkronkan lintas modul dalam $<5\text{ detik}$, data status ruang selaras dengan kondisi fisik, serta riwayat tercatat di *audit log* dengan keandalan $99{,}99\%$. | **(H, M)** |
+```text
+Utilitas Sub-Modul Jadwal Kuliah dan Ruang SIAKAD UMI
+  ├── 1. Performance Efficiency
+  │      └── Functional Correctness & Conflict Validation
+  │             └── [S1] Validasi sinkron ketersediaan ruang, dosen, mahasiswa (termasuk lintas semester & lab vs teori), serta kapasitas ruang (menolak 100% bentrok, response backend <= 500 ms)
+  │                    └── Prioritas: (High, High)
+  │
+  ├── 2. Usability
+  │      └── Operability & User Responsiveness
+  │             └── [S2] Akses dasbor jadwal pribadi seluler/desktop & penerimaan push notification instan perubahan jadwal (< 1,5 detik, <= 3 klik)
+  │                    └── Prioritas: (High, Medium)
+  │
+  └── 3. Reliability
+         └── Fault Tolerance, Data Persistence & Event Auditability
+                └── [S3] Sinkronisasi pembaruan jadwal lintas modul (< 5 detik) & pencatatan audit log transaksi perubahan (keandalan 99,99%)
+                       └── Prioritas: (High, Medium)
+```
 
 ---
 
@@ -75,7 +85,7 @@ Meskipun rancangan arsitektur sub-modul Jadwal Kuliah dan Ruang SIAKAD UMI ini t
 
 ---
 
-## 6.5 Diagram Konteks (PlantUML)
+## 6.5 Diagram Konteks System Context (PlantUML)
 
 ```plantuml
 @startuml
@@ -133,11 +143,11 @@ class FirebaseFCM {
     + kirimPushNotification(token: String, pesan: String): void
 }
 
-SIAKAD_UMI_SubModul --> CoreDB : Membaca/Meminta Data
+SIAKAD_UMI_SubModul --> CoreDB : Membaca/Menyimpan Data
 SIAKAD_UMI_SubModul --> FirebaseFCM : Mengirim Push Notification
 AdminAkademik --> SIAKAD_UMI_SubModul : Mengatur Jadwal
 Dosen --> SIAKAD_UMI_SubModul : Mengajukan Rescheduling
 Mahasiswa --> SIAKAD_UMI_SubModul : Melihat Dasbor
 PengelolaRuangFakultas --> SIAKAD_UMI_SubModul : Mengelola Status Ruang
-@enduml
+@endluml
 ```
