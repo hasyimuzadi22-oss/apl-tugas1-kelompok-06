@@ -35,7 +35,7 @@ Pengelolaan jadwal perkuliahan pada SIAKAD saat ini berpotensi tinggi memicu **b
 
 ### A. Stakeholder Register
 1. **Admin Akademik (Manajer Bisnis):** Memiliki tanggung jawab mengatur jadwal seluruh prodi, memverifikasi permohonan perubahan, dan mengelola alokasi ruang. Menghadapi tantangan penyusunan jadwal akibat mahasiswa lintas semester, keterbatasan kelas, dan jadwal lab yang tidak sinkron dengan teori.
-2. **Pengelola Ruang / Fakultas (Manajer Bisnis):** Mengawasi ketersediaan dan status penggunaan ruang kelas/laboratorium fisik agar tidak tumpang tindih. Menghadapi ketidaksesuaian antara data fisik di lapangan dan data pada sistem digital.
+2. **Pengelola Ruang / Fakultas (Manajer Bisnis):** Mengawasi ketersediaan dan status penggunaan ruang kelas fisik agar tidak tumpang tindih. Menghadapi ketidaksesuaian antara data fisik di lapangan dan data pada sistem digital.
 3. **Dosen (Pengguna Akhir):** Membutuhkan kepastian jadwal mengajar yang akurat, tidak bentrok dengan agenda akademik lain, ruang dengan kapasitas yang sesuai jumlah mahasiswa, informasi perubahan jadwal/ruang yang tepat waktu, serta kemudahan dalam mengajukan *rescheduling*.
 4. **Mahasiswa (Pengguna Akhir):** Membutuhkan tampilan jadwal pribadi yang konsisten, jelas, akurat, dan bebas bentrok di perangkat seluler maupun desktop, serta notifikasi langsung saat jam atau ruang berubah.
 
