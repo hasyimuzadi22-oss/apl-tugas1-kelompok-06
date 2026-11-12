@@ -2,7 +2,7 @@
 
 ## 4.1 Struktur Pandangan Arsitektur (*Architectural Views*)
 
-Perancangan arsitektur sub-modul **Jadwal Kuliah dan Ruang** pada **Sistem Informasi Akademik (SIAKAD) Universitas Muslim Indonesia (UMI)** divisualisasikan melalui tiga pandangan utama:
+Perancangan arsitektur sub-modul **Jadwal Kuliah dan Ruang** pada **Sistem Informasi Akademik (SIAKAD) Universitas Muslim Indonesia (UMI)** divisualisasikan melalui tiga pandangan utama yaitu:
 
 ### 1. Module View
 Membagi elemen logis kode menjadi beberapa modul independen yang beroperasi secara terpusat:
