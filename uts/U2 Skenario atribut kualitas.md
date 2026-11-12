@@ -4,7 +4,7 @@
 
 Skenario atribut kualitas merupakan gambaran kebutuhan kualitas yang harus dipenuhi oleh Layanan *Academic Management* (khususnya sub-modul Jadwal Kuliah dan Ruang) pada Sistem Informasi Akademik (SIAKAD) Universitas Muslim Indonesia (UMI). Skenario ini disusun berdasarkan tiga *Architectural Significant Requirements* (ASR) pada U1, yaitu keakuratan deteksi bentrok (*Performance Efficiency*), kemudahan akses informasi jadwal (*Usability*), serta keandalan pencatatan dan konsistensi data (*Reliability*).
 
-Tujuan penyusunan skenario ini adalah memastikan sistem mampu memberikan layanan yang cepat, mudah digunakan, dan dapat diandalkan dalam mengelola operasional penjadwalan perkuliahan.
+Tujuan penyusunan skenario ini adalah memastikan sistem mampu memberikan layanan yang cepat, mudah digunakan, dan dapat diandalkan dalam mengelola operasional penjadwalan perkuliahan
 
 ---
 
