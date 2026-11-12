@@ -4,7 +4,7 @@ Layanan *Academic Management* (khususnya sub-modul Jadwal Kuliah dan Ruang) meru
 * Pengelolaan dan alokasi ruang kelas fisik beserta fasilitas penunjangnya.
 * Pengaturan dan validasi jam mengajar dosen.
 * Pengajuan dan persetujuan perubahan jadwal (*rescheduling*) secara dinamis.
-* Penayangan dasbor jadwal pribadi (*personal schedule dashboard*) yang tersesuaikan untuk mahasiswa dan dosen.
+* Penayangan dasbor jadwal pribadi (*personal schedule dashboard*) yang tersesuaikan untuk mahasiswa dan dosen
 
 ---
 
